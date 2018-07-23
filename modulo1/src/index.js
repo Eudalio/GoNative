@@ -13,7 +13,7 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <Todo title='Estudar GoNative hehe!'/>
-        <Todo />
+        <Todo title={7} />
       </View>
     );
   }
