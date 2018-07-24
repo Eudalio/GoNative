@@ -1,13 +1,17 @@
+import './config/ReactotronConfig'
+
 import React, {Component} from 'react';
 import {
-  Platform, 
-  StyleSheet, 
-  Text, 
+  Platform,
+  StyleSheet,
+  Text,
   View,
   Button,
 } from 'react-native';
 
 import Todo from './components/Todo'
+
+console.tron.log("Hello");
 
 export default class App extends Component {
   state = {
@@ -20,10 +24,10 @@ export default class App extends Component {
 
   addTodo = () => {
     this.setState({
-      todos: [ 
-        ...this.state.todos, 
-        { id: Math.random(), text: 'Novo Todo' }, 
-      ], 
+      todos: [
+        ...this.state.todos,
+        { id: Math.random(), text: 'Novo Todo' },
+      ],
     });
   }
 
