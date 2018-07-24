@@ -9,7 +9,7 @@ import {
   Button,
 } from 'react-native';
 
-import Todo from './components/Todo'
+import Todo from './components/Todo';
 
 console.tron.log("Hello");
 
@@ -28,7 +28,7 @@ export default class App extends Component {
         ...this.state.todos,
         { id: Math.random(), text: 'Novo Todo' },
       ],
-    });
+    })
   }
 
   render() {
