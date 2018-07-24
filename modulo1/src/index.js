@@ -11,6 +11,7 @@ import Todo from './components/Todo'
 
 export default class App extends Component {
   state = {
+    usuario: 'Eudálio',
     todos: [
       'Fazer café',
       'Estudar o GoNative',
@@ -18,12 +19,16 @@ export default class App extends Component {
   };
 
   addTodo = () => {
-    this.setState({ todos: [ ...this.state.todos, 'Novo Todo'] });
+    this.setState({ 
+      usuario: this.state.usuario + '1', 
+      todos: [ ...this.state.todos, 'Novo Todo'] 
+    });
   }
 
   render() {
     return (
       <View style={styles.container}>
+        <Text> { this.state.usuario } </Text>
         { this.state.todos.map(todo => <Todo title={todo} />) }
         <Button title='Adicionar Todo' onPress={this.addTodo} />
       </View>
