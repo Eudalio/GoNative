@@ -13,15 +13,17 @@ export default class App extends Component {
   state = {
     usuario: 'Eudálio',
     todos: [
-      'Fazer café',
-      'Estudar o GoNative',
+      { id: 0, text: 'Fazer café' },
+      { id: 1, text: 'Estudar o GoNative' },
     ],
   };
 
   addTodo = () => {
-    this.setState({ 
-      usuario: this.state.usuario + '1', 
-      todos: [ ...this.state.todos, 'Novo Todo'] 
+    this.setState({
+      todos: [ 
+        ...this.state.todos, 
+        { id: Math.random(), text: 'Novo Todo' }, 
+      ], 
     });
   }
 
@@ -29,7 +31,9 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <Text> { this.state.usuario } </Text>
-        { this.state.todos.map(todo => <Todo title={todo} />) }
+        { this.state.todos.map(todo => (
+          <Todo key={todo.id} title={todo.text} />
+        )) }
         <Button title='Adicionar Todo' onPress={this.addTodo} />
       </View>
     );
