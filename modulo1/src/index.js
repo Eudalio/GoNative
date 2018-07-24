@@ -1,5 +1,5 @@
-import './config/ReactotronConfig'
-import './config/DevToolsConfig'
+import 'config/ReactotronConfig'
+import 'config/DevToolsConfig'
 
 import React, {Component} from 'react';
 import {
@@ -10,7 +10,7 @@ import {
   Button,
 } from 'react-native';
 
-import Todo from './components/Todo';
+import Todo from 'components/Todo';
 
 console.tron.log("Hello");
 
