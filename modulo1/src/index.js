@@ -8,12 +8,16 @@ import {
 
 import Todo from './components/Todo'
 
+const todos = [
+  'Fazer café',
+  'Estudar o GoNative',
+];
+
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Todo title='Estudar GoNative hehe!'/>
-        <Todo title={7} />
+        { todos.map(todo => <Todo title={todo} />) }
       </View>
     );
   }
