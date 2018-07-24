@@ -18,7 +18,7 @@ export default class App extends Component {
   };
 
   addTodo = () => {
-    this.setState({ todos: ['Estudar JS6'] });
+    this.setState({ todos: [ ...this.state.todos, 'Novo Todo'] });
   }
 
   render() {
