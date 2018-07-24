@@ -1,4 +1,5 @@
 import './config/ReactotronConfig'
+import './config/DevToolsConfig'
 
 import React, {Component} from 'react';
 import {
@@ -34,13 +35,9 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box}>
-          <Text style={styles.text}>Hello Devs</Text>
-        </View>
+        <Todo title='Fazer café' />
+        <Todo title='Estudar muito, muitas coisas' />
+        <Todo title='Ir deixar a fêmea no trabalho. Ok' />
       </View>
     );
   }
@@ -49,11 +46,11 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#333',
-    flexDirection: 'row',
+    backgroundColor: '#fff',
+    flexDirection: 'column',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    alignContent: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   box: {
     width: 80,
