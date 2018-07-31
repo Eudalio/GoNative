@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { NavigationActions } from 'react-navigation';
+import PropTypes from 'prop-types';
 
 import {
   View,
@@ -10,33 +12,52 @@ import {
 
 import styles from './styles';
 
-const Welcome = () => (
-  <View style={styles.container}>
-    <StatusBar barStyle="light-content" />
+export default class Welcome extends Component {
+  static navigationOptions = {
+    header: null,
+  };
 
-    <Text style={styles.title}>Bem-vindo</Text>
-    <Text style={styles.text}>
-      Para continar, precisamos que você informe seu usuário no Github.
-    </Text>
+  static propTypes = {
+    navigation: PropTypes.shape({
+      dispatch: PropTypes.func,
+    }).isRequired,
+  };
 
-    <View style={styles.form}>
-      <TextInput
-        style={styles.input}
-        autoCapitalize="none"
-        autoCorrect={false}
-        placeholder="Digite seu usuário"
-        underlineColorAndroid="rgba(0, 0, 0, 0)"
-      />
+  signin = () => {
+    const resetAction = NavigationActions.reset({
+      index: 0,
+      actions: [
+        NavigationActions.navigate({ routeName: 'User' }),
+      ],
+    });
 
-      <TouchableOpacity style={styles.button} onPress={() => {}}>
-        <Text style={styles.buttonText}>Prosseguir</Text>
-      </TouchableOpacity>
-    </View>
-  </View>
-);
+    this.props.navigation.dispatch(resetAction);
+  };
 
-Welcome.navigationOptions = {
-  header: null,
-};
+  render() {
+    return (
+      <View style={styles.container}>
+        <StatusBar barStyle="light-content" />
 
-export default Welcome;
+        <Text style={styles.title}>Bem-vindo</Text>
+        <Text style={styles.text}>
+          Para continar, precisamos que você informe seu usuário no Github.
+        </Text>
+
+        <View style={styles.form}>
+          <TextInput
+            style={styles.input}
+            autoCapitalize="none"
+            autoCorrect={false}
+            placeholder="Digite seu usuário"
+            underlineColorAndroid="rgba(0, 0, 0, 0)"
+          />
+
+          <TouchableOpacity style={styles.button} onPress={this.signin}>
+            <Text style={styles.buttonText}>Prosseguir</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
+}
