@@ -9,6 +9,7 @@ import {
   TextInput,
   TouchableOpacity,
   StatusBar,
+  ActivityIndicator,
 } from 'react-native';
 
 import styles from './styles';
@@ -26,6 +27,8 @@ export default class Welcome extends Component {
 
   state = {
     username: '',
+    loading: false,
+    errorMessage: null,
   };
 
   checkUserExists = async (username) => {
@@ -39,6 +42,8 @@ export default class Welcome extends Component {
 
     if (username.length === 0) return;
 
+    this.setState({ loading: true });
+
     try {
       await this.checkUserExists(username);
 
@@ -51,11 +56,13 @@ export default class Welcome extends Component {
 
       this.props.navigation.dispatch(resetAction);
     } catch (err) {
-      // erro
+      this.setState({ loading: false, errorMessage: 'Usuário não encontrado.' });
     }
   };
 
   render() {
+    const { loading , errorMessage } = this.state;
+
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
@@ -64,6 +71,9 @@ export default class Welcome extends Component {
         <Text style={styles.text}>
           Para continar, precisamos que você informe seu usuário no Github.
         </Text>
+
+        { !!errorMessage
+          && <Text style={styles.error}>{errorMessage}</Text>}
 
         <View style={styles.form}>
           <TextInput
@@ -77,7 +87,10 @@ export default class Welcome extends Component {
           />
 
           <TouchableOpacity style={styles.button} onPress={this.signin}>
-            <Text style={styles.buttonText}>Prosseguir</Text>
+            { loading
+              ? <ActivityIndicator size="small" color="#FFF" />
+              : <Text style={styles.buttonText}>Prosseguir</Text>
+            }
           </TouchableOpacity>
         </View>
       </View>
