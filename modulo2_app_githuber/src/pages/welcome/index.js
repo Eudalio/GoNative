@@ -1,11 +1,19 @@
 import React from 'react';
 
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StatusBar,
+} from 'react-native';
 
 import styles from './styles';
 
 const Welcome = () => (
   <View style={styles.container}>
+    <StatusBar barStyle="light-content" />
+
     <Text style={styles.title}>Bem-vindo</Text>
     <Text style={styles.text}>
       Para continar, precisamos que você informe seu usuário no Github.
