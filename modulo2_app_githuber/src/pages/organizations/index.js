@@ -10,6 +10,8 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import OrganizationItem from './components/OrganizationItem';
+
 import styles from './styles';
 
 export default class Organizations extends Component {
@@ -37,13 +39,15 @@ export default class Organizations extends Component {
     });
   }
 
-  renderListItem = ({ item }) => <Text>{item.login}</Text>;
+  renderListItem = ({ item }) => <OrganizationItem organization={item} />;
 
   renderList = () => (
     <FlatList
       data={this.state.data}
       keyExtractor={item => String(item.id)}
       renderItem={this.renderListItem}
+      numColumns={2}
+      columnWrapperStyle={styles.columnContainer}
     />
   )
 

@@ -10,7 +10,7 @@ import {
   FlatList,
 } from 'react-native';
 
-import RepositoryItem from './components/index';
+import RepositoryItem from './components/RepositoryItem';
 
 import styles from './styles';
 
