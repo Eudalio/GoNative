@@ -1,6 +1,6 @@
-import 'config/ReactotronConfig';
-
 import React, { Component } from 'react';
+import './config/ReactotronConfig';
+
 import { AsyncStorage } from 'react-native';
 
 import createNavigator from './routes';
