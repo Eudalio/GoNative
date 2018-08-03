@@ -8,8 +8,9 @@ import {
   AsyncStorage,
   ActivityIndicator,
   FlatList,
-  Text,
 } from 'react-native';
+
+import RepositoryItem from './components/index';
 
 import styles from './styles';
 
@@ -38,9 +39,7 @@ export default class Repositories extends Component {
     });
   }
 
-  renderListItem = ({ item }) => (
-    <Text>{item.full_name}</Text>
-  )
+  renderListItem = ({ item }) => <RepositoryItem repository={item} />
 
   renderList = () => (
     <FlatList
