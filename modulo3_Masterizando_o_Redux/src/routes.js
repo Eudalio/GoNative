@@ -14,6 +14,9 @@ const Routes = StackNavigator({
     },
     headerTintColor: colors.white,
     headerBackTitle: null,
+    headerTitleStyle: {
+      width: 140,
+    },
   },
 });
 
