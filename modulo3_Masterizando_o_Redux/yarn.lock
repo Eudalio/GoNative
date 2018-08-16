@@ -4893,6 +4893,16 @@ reactotron-react-native@^2.0.0:
     prop-types "^15.5.10"
     reactotron-core-client "^2.0.0"
 
+reactotron-redux-saga@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/reactotron-redux-saga/-/reactotron-redux-saga-2.0.0.tgz#a90fc5e4100d14eb1e806b863721054a6af8c115"
+  dependencies:
+    ramda "^0.24.1"
+    ramdasauce "^2.0.0"
+    reactotron-core-client "^2.0.0"
+    redux "^3.7.1"
+    redux-saga "^0.15.3"
+
 reactotron-redux@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/reactotron-redux/-/reactotron-redux-2.0.0.tgz#79ae2c2e55bf11621a5c1c7d102f4e1a63bc074b"
@@ -4949,6 +4959,10 @@ realpath-native@^1.0.0:
   resolved "https://registry.yarnpkg.com/realpath-native/-/realpath-native-1.0.1.tgz#07f40a0cce8f8261e2e8b7ebebf5c95965d7b633"
   dependencies:
     util.promisify "^1.0.0"
+
+redux-saga@^0.15.3:
+  version "0.15.6"
+  resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-0.15.6.tgz#8638dc522de6c6c0a496fe8b2b5466287ac2dc4d"
 
 redux-saga@^0.16.0:
   version "0.16.0"
