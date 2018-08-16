@@ -36,6 +36,17 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
   },
 
+  error: {
+    fontWeight: 'bold',
+    color: colors.danger,
+    alignSelf: 'center',
+    marginBottom: metrics.baseMargin,
+  },
+
+  loading: {
+    color: colors.darkTransparent,
+  },
+
   input: {
     height: 50,
     backgroundColor: colors.white,

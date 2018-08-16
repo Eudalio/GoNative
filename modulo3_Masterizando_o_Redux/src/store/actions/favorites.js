@@ -11,3 +11,10 @@ export const addFavoriteSucess = repository => ({
     repository,
   },
 });
+
+export const addFavoriteError = message => ({
+  type: 'ADD_FAVORITE_ERROR',
+  payload: {
+    message,
+  },
+});
