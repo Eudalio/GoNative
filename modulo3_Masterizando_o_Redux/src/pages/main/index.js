@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import {
   SafeAreaView,
   View,
@@ -12,7 +13,7 @@ import {
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as FavoriteActions from 'store/actions/favorites';
+import { Creators as FavoriteActions } from 'store/ducks/favorites';
 
 import styles from './styles';
 
@@ -39,13 +40,13 @@ class Main extends Component {
 
   navigateToFavorites = () => {
     this.props.navigation.navigate('Favorites');
-  };
+  }
 
   addRepository = () => {
     if (!this.state.repoNameInput.length) return;
 
     this.props.addFavoriteRequest(this.state.repoNameInput);
-  };
+  }
 
   render() {
     return (
@@ -55,13 +56,14 @@ class Main extends Component {
         <View style={styles.content}>
           <Text style={styles.title}>Gitmark</Text>
           <Text style={styles.description}>
-            Comece adicionando alguns repositórios aos seus favoritos
+            Comece adicionando alguns repositórios aos seus favoritos.
           </Text>
 
           <View style={styles.form}>
             { !!this.props.favorites.errorOnAdd && (
               <Text style={styles.error}>{this.props.favorites.errorOnAdd}</Text>
             ) }
+
             <TextInput
               style={styles.input}
               autoCapitalize="none"
@@ -79,15 +81,14 @@ class Main extends Component {
             >
               { this.props.favorites.loading
                 ? <ActivityIndicator size="small" color={styles.loading.color} />
-                : <Text style={styles.buttonText}>Adicionar aos favoritos</Text>
-              }
+                : <Text style={styles.buttonText}>Adicionar aos favoritos</Text> }
             </TouchableOpacity>
           </View>
         </View>
 
         <View style={styles.footer}>
           <TouchableOpacity onPress={this.navigateToFavorites}>
-            <Text style={styles.footerLink}>Meus favoritos ({ this.props.favorites.data.length }) </Text>
+            <Text style={styles.footerLink}>Meus favoritos ({ this.props.favorites.data.length })</Text>
           </TouchableOpacity>
         </View>
       </SafeAreaView>

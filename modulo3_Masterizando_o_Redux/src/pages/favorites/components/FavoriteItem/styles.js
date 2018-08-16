@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     color: colors.dark,
     marginTop: 3,
     fontSize: 12,
-  }
+  },
 });
 
 export default styles;

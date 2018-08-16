@@ -7,15 +7,10 @@ import styles from './styles';
 
 const FavoriteItem = ({ favorite: { name, owner, description } }) => (
   <View style={styles.container}>
-    <Image style={styles.avatar} source={{ uri: owner.avatar_url}} />
+    <Image style={styles.avatar} source={{ uri: owner.avatar_url }} />
     <View style={styles.info}>
       <Text style={styles.title}>{name}</Text>
-      <Text
-        numberOfLines={2}
-        style={styles.description}
-      >
-        { description }
-      </Text>
+      <Text numberOfLines={2} style={styles.description}>{description}</Text>
     </View>
   </View>
 );
